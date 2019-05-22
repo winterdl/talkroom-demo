@@ -19,6 +19,7 @@ function on_recv_server_return(session, cmd_buf) {
 
     stype = cmd[0];
     ctype = cmd[1];
+    body = cmd[2];
     utag = cmd[3];
 
     if(service_modules[stype].is_transfer){
@@ -26,7 +27,7 @@ function on_recv_server_return(session, cmd_buf) {
         return true;
     }
 
-    body = cmd[2];
+
 
     service_modules[stype].on_recv_server_return(session, stype, ctype, body, utag, cmd_buf);
     return true;
@@ -38,10 +39,12 @@ function on_recv_client_cmd(session, cmd_buf) {
     if(!cmd){
         return false;
     }
+
     stype = cmd[0];
     ctype = cmd[1];
     body = cmd[2];
     utag = cmd[3];
+
     if(!service_modules[stype]){
         return false;
     }
