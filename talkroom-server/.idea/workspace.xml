@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd228a68-816b-4f04-b06d-018d5243b52e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/netbus/proto_man.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/netbus/proto_tools.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/netbus/service_manager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/netbus/proto_man.js" beforeDir="false" afterPath="$PROJECT_DIR$/netbus/proto_man.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/netbus/proto_tools.js" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,10 +17,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/netbus/netbus.js">
+        <entry file="file://$PROJECT_DIR$/netbus/proto_man.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="158" column="42" selection-start-line="158" selection-start-column="42" selection-end-line="158" selection-end-column="42" />
+            <state relative-caret-position="506">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
             </state>
           </provider>
         </entry>
@@ -32,13 +31,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/netbus/proto_man.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/netbus/proto_tools.js">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/netbus/netbus.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="16" column="20" lean-forward="true" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -67,9 +65,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/netbus/service_manager.js" />
-        <option value="$PROJECT_DIR$/netbus/proto_man.js" />
         <option value="$PROJECT_DIR$/netbus/proto_tools.js" />
         <option value="$PROJECT_DIR$/netbus/netbus.js" />
+        <option value="$PROJECT_DIR$/netbus/proto_man.js" />
       </list>
     </option>
   </component>
@@ -80,10 +78,10 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="650" />
+    <option name="x" value="596" />
     <option name="y" value="23" />
     <option name="width" value="1920" />
-    <option name="height" value="946" />
+    <option name="height" value="943" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -142,24 +140,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1558537307529</updated>
-      <workItem from="1558537313586" duration="2871000" />
+      <workItem from="1558537313586" duration="4458000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2871000" />
+    <option name="totallyTimeSpent" value="4458000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="954" y="137" width="1920" height="946" extended-state="0" />
+    <frame x="596" y="23" width="1920" height="943" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="npm" side_tool="true" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.065539114" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11363637" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.14578313" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -180,16 +178,20 @@
     <entry file="file://$PROJECT_DIR$/netbus/service_manager.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/netbus/proto_man.js">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/netbus/netbus.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="20" lean-forward="true" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/netbus/proto_tools.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/netbus/netbus.js">
+    <entry file="file://$PROJECT_DIR$/netbus/proto_man.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="158" column="42" selection-start-line="158" selection-start-column="42" selection-end-line="158" selection-end-column="42" />
+        <state relative-caret-position="506">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
     </entry>
