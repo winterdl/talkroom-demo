@@ -22,14 +22,7 @@ function on_recv_server_return(session, cmd_buf) {
     body = cmd[2];
     utag = cmd[3];
 
-    if(service_modules[stype].is_transfer){
-        service_modules[stype].on_recv_server_return(session, stype, ctype, null, utag, cmd_buf);
-        return true;
-    }
-
-
-
-    service_modules[stype].on_recv_server_return(session, stype, ctype, body, utag, cmd_buf);
+    service_modules[stype].on_recv_server_return(session, stype, ctype, body, utag, body);
     return true;
 }
 
@@ -49,12 +42,7 @@ function on_recv_client_cmd(session, cmd_buf) {
         return false;
     }
 
-    if(service_modules[stype].is_transfer){
-        service_modules[stype].on_recv_player_cmd(session, stype, ctype, null, utag, cmd_buf);
-        return true;
-    }
-
-    service_modules[stype].on_recv_player_cmd(session, stype, ctype, body, utag, cmd_buf);
+    service_modules[stype].on_recv_player_cmd(session, stype, ctype, body, utag, body);
     return true;
 }
 

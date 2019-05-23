@@ -9,3 +9,5 @@ var talkroom = game_config.talkroom_server;
 netbus.start_ws_server(talkroom.port);
 
 service_manager.register_service(Stype.TalkRoom, talkroom_service);
+
+console.log("talkroom_server start success!");

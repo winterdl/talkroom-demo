@@ -26,6 +26,11 @@ var game_config = {
             stype: Stype.TalkRoom,
             host: HOST_IP,
             port: 6084
+        },
+        1:{
+            stype: Stype.Auth,
+            host: HOST_IP,
+            port: 6086
         }
     }
 };

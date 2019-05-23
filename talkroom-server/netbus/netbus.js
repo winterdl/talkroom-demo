@@ -12,7 +12,7 @@ function get_client_session(session_key) {
 }
 
 function on_session_enter(session) {
-    console.log("client 【", session._socket.remoteAddress, session._socket.remotePort, "】connect gw success!");
+    console.log("client/gw 【", session._socket.remoteAddress, session._socket.remotePort, "】connect gw/业务server success!");
     session.is_connected = true;
     session.uid = 0;
     session.send_encoded_cmd = session_send_encoded_cmd.bind(session);
@@ -129,7 +129,7 @@ function connect_tcp_server(stype, host, port) {
 }
 
 function on_session_connected(stype, session) {
-    console.log("gw【", session._socket.remoteAddress, session._socket.remotePort, "】connect 【stype=", stype, "】success");
+    console.log("gw connect to business server【", session._socket.remoteAddress, session._socket.remotePort, 'stype=', stype, "】success");
     session.is_connected = true;
     session.send_encoded_cmd = session_send_encoded_cmd.bind(session);
     session.send_cmd = session_send_cmd.bind(session);
