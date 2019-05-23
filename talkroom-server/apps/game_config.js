@@ -9,6 +9,18 @@ var game_config = {
         port: 6080
     },
 
+    center_server: {
+        host: HOST_IP,
+        port: 6086,
+        stypes: [Stype.Auth]
+    },
+
+    talkroom_server: {
+        host: HOST_IP,
+        port: 6084,
+        stypes: [Stype.TalkRoom]
+    },
+
     gw_connect_servers: {
         0: {
             stype: Stype.TalkRoom,

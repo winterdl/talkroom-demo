@@ -20,8 +20,8 @@ function clear_session_with_uid(uid) {
 }
 
 var service = {
-    name: "broadcast service",
-    is_transfer: false,
+    name: "gw_service",
+    is_transfer: true,
     on_recv_player_cmd: function (session, stype, ctype, body, utag, raw_cmd) {
 
     },
