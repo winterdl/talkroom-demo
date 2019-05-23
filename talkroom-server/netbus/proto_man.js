@@ -19,7 +19,7 @@ function decode_cmd(cmd_buf) { // 不再需要根据stype ctype定位解码器�
         cmd_data = null;
     }
 
-    return cmd_data; // 0  1  2  3 共4个字段
+    return cmd_data; // 0:stype  1:ctype  2:body  3:utag 共4个字段
 }
 
 module.exports = {
