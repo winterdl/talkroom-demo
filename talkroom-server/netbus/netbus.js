@@ -83,7 +83,7 @@ function start_ws_server(port) {
     });
 
     server.on("connection", function (client_sock) {
-        ws_add_client_session_event(client_sock)
+        ws_add_client_session_event(client_sock);
     });
 
     server.on("error", function (err) {

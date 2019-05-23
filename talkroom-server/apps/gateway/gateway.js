@@ -7,10 +7,9 @@ var bc_service = require("./bc_service");
 
 var Stype = require("./../Stype");
 
-var host = game_config.gateway_config.host;
 var port = game_config.gateway_config.port;
 
-netbus.start_ws_server(host, port);
+netbus.start_ws_server(port);
 
 service_manager.register_service(Stype.Broadcast, bc_service);
 
