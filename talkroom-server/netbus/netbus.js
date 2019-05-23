@@ -12,7 +12,7 @@ function get_client_session(session_key) {
 }
 
 function on_session_enter(session) {
-    console.log("客户端 【", session._socket.remoteAddress, session._socket.remotePort, "】连接网关成功");
+    console.log("client 【", session._socket.remoteAddress, session._socket.remotePort, "】connect gw success!");
     session.is_connected = true;
     session.uid = 0;
     session.send_encoded_cmd = session_send_encoded_cmd.bind(session);
@@ -114,7 +114,7 @@ function connect_tcp_server(stype, host, port) {
         session.close();
 
         setTimeout(function () {
-            console.log("gw connect to [ stype=", stype, "port=", port, "] failed, waiting reconnect...");
+            console.log("gw connect to 【 stype=", stype, "port=", port, "】 failed, waiting reconnect...");
             connect_tcp_server(stype, host, port);
         }, 3000);
     };
@@ -129,7 +129,7 @@ function connect_tcp_server(stype, host, port) {
 }
 
 function on_session_connected(stype, session) {
-    console.log("网关【", session._socket.remoteAddress, session._socket.remotePort, "】连接 【stype=", stype, "】成功");
+    console.log("gw【", session._socket.remoteAddress, session._socket.remotePort, "】connect 【stype=", stype, "】success");
     session.is_connected = true;
     session.send_encoded_cmd = session_send_encoded_cmd.bind(session);
     session.send_cmd = session_send_cmd.bind(session);

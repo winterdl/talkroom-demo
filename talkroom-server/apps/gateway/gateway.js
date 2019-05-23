@@ -26,4 +26,4 @@ for(var key in game_server){
     service_manager.register_service(game_server[key].stype, gw_service);
 }
 
-console.log("gateway启动成功!");
+console.log("gw start success!");
