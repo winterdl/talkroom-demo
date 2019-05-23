@@ -114,8 +114,8 @@ function connect_tcp_server(stype, host, port) {
         session.close();
 
         setTimeout(function () {
-            console.log("reconnect stype=", stype, "port=", port);
-            connect_ws_server(stype, host, port);
+            console.log("gw connect to [ stype=", stype, "port=", port, "] failed, waiting reconnect...");
+            connect_tcp_server(stype, host, port);
         }, 3000);
     };
     
