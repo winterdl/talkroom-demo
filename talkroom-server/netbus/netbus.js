@@ -12,7 +12,7 @@ function get_client_session(session_key) {
 }
 
 function on_session_enter(session) {
-    console.log("session enter", session._socket.remoteAddress, session._socket.remotePort);
+    console.log("客户端 【", session._socket.remoteAddress, session._socket.remotePort, "】连接网关成功");
     session.is_connected = true;
     session.uid = 0;
     session.send_encoded_cmd = session_send_encoded_cmd.bind(session);
@@ -129,7 +129,7 @@ function connect_tcp_server(stype, host, port) {
 }
 
 function on_session_connected(stype, session) {
-    console.log("session connected:", session._socket.remoteAddress, session._socket.remotePort);
+    console.log("网关【", session._socket.remoteAddress, session._socket.remotePort, "】连接 【stype=", stype, "】成功");
     session.is_connected = true;
     session.send_encoded_cmd = session_send_encoded_cmd.bind(session);
     session.send_cmd = session_send_cmd.bind(session);
