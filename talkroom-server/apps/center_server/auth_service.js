@@ -5,7 +5,12 @@ var Cmd = require("./../Cmd");
 var Stype = require("./../Stype");
 
 function uname_login(session, utag, body) {
-    
+    // 验证数据合法性
+
+    //
+    var uname = body[0];
+    var upwd = body[1];
+
 }
 
 var service = {
