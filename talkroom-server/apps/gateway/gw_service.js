@@ -44,7 +44,7 @@ var service = {
     is_transfer: true,
     on_recv_player_cmd: function (session, stype, ctype, body, utag, raw_cmd) {
 
-        console.log("gw_service=", stype, ctype, body, utag, raw_cmd);
+        console.log("~on_recv_player_cmd gw_service=", stype, ctype, body, utag, raw_cmd);
 
         var server_session = netbus.get_server_session(stype);
         if(is_before_login_cmd(stype, ctype)){
@@ -56,8 +56,12 @@ var service = {
             utag = session.uid;
         }
 
-        server_session.send_encoded_cmd(raw_cmd);
+        console.log("gw_service=", stype, ctype, body, utag, raw_cmd);
 
+
+        var cmd_json = proto_man.encode_cmd(stype, ctype, body, utag);
+
+        server_session.send_encoded_cmd(cmd_json);
     },
 
     on_recv_server_return: function (session, stype, ctype, body, utag, raw_cmd) {

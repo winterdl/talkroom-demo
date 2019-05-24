@@ -43,14 +43,14 @@ function session_send_encoded_cmd(cmd) {
     if(!this.is_connected){
         return;
     }
-    session.send(cmd);
+    this.send(cmd);
 }
 
 function session_send_cmd(stype, ctype, body, utag) {
     if(!this.is_connected){
         return;
     }
-    var cmd = proto_man.encode_cmd(utag, stype, ctype, body);
+    var cmd = proto_man.encode_cmd(stype, ctype, body, utag);
     if(cmd){
         this.send_encoded_cmd(cmd);
     }
@@ -133,6 +133,9 @@ function on_session_connected(stype, session) {
     session.is_connected = true;
     session.send_encoded_cmd = session_send_encoded_cmd.bind(session);
     session.send_cmd = session_send_cmd.bind(session);
+
+    server_connect_list[stype] = session;
+    session.session_key = stype;
 }
 
 function on_session_disconnect(session) {

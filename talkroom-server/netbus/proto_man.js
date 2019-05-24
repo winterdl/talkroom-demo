@@ -1,4 +1,4 @@
-function encode_cmd(utag, stype, ctype, body) {
+function encode_cmd(stype, ctype, body, utag) {
     var buf = {};
     buf[0] = stype;
     buf[1] = ctype;

@@ -1,4 +1,5 @@
 var ugame = require("./../ugame");
+var auth = require("./../protobufs/auth");
 
 cc.Class({
     extends: cc.Component,
@@ -23,7 +24,7 @@ cc.Class({
             }
 
             ugame.save_temp_uname_and_pwd(this.edit_uname.string, this.edit_pwd.string);
-
+            auth.uname_login();
         }
     }
 });
