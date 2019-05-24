@@ -20,7 +20,6 @@ function on_session_enter(session, isClientToGw) {
         log.info("【 gw", session._socket.remoteAddress, session._socket.remotePort, "】connect business server success!");
     }
 
-
     session.is_connected = true;
     session.uid = 0;
     session.send_encoded_cmd = session_send_encoded_cmd.bind(session);
@@ -121,8 +120,9 @@ function connect_tcp_server(stype, host, port) {
         }
         session.close();
 
+        log.warn("warning!!! gw connect to 【 business server stype=", stype, "port=", port, "】 failed, waiting reconnect...");
+
         setTimeout(function () {
-            log.warn("warning!!! gw connect to 【 business server stype=", stype, "port=", port, "】 failed, waiting reconnect...");
             connect_tcp_server(stype, host, port);
         }, 3000);
     };
