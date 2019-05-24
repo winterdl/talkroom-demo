@@ -1,3 +1,5 @@
+var log = require("./../../utils/log");
+
 var game_config = require("./../game_config");
 var netbus = require("./../../netbus/netbus");
 var service_manager = require("./../../netbus/service_manager");
@@ -25,4 +27,4 @@ for(var key in game_server){
     service_manager.register_service(game_server[key].stype, gw_service);
 }
 
-console.log("gw start success!");
+log.info("gw start success!");

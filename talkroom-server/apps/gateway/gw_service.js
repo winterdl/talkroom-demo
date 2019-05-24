@@ -1,3 +1,5 @@
+var log = require("./../../utils/log");
+
 var netbus = require("./../../netbus/netbus");
 var proto_man = require("./../../netbus/proto_man");
 var Respones = require("./../Respones");
@@ -44,7 +46,7 @@ var service = {
     is_transfer: true,
     on_recv_player_cmd: function (session, stype, ctype, body, utag, raw_cmd) {
 
-        console.log("~on_recv_player_cmd gw_service=", stype, ctype, body, utag, raw_cmd);
+        log.info("~on_recv_player_cmd gw_service=", stype, ctype, body, utag, raw_cmd);
 
         var server_session = netbus.get_server_session(stype);
         if(is_before_login_cmd(stype, ctype)){
@@ -56,7 +58,7 @@ var service = {
             utag = session.uid;
         }
 
-        console.log("gw_service=", stype, ctype, body, utag, raw_cmd);
+        log.info("gw_service=", stype, ctype, body, utag, raw_cmd);
 
 
         var cmd_json = proto_man.encode_cmd(stype, ctype, body, utag);

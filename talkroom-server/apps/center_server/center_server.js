@@ -1,3 +1,5 @@
+var log = require("./../../utils/log");
+
 var game_config = require("./../game_config");
 var proto_man = require("./../../netbus/proto_man");
 var netbus = require("./../../netbus/netbus");
@@ -12,4 +14,4 @@ netbus.start_ws_server(center.port);
 
 service_manager.register_service(Stype.Auth, auth_service);
 
-console.log("center_server start success!");
+log.info("center_server start success!");

@@ -1,3 +1,5 @@
+var log = require("./../../utils/log");
+
 var netbus = require("./../../netbus/netbus");
 var proto_man = require("./../../netbus/proto_man");
 var Respones = require("./../Respones");
@@ -18,7 +20,7 @@ var service = {
     is_transfer: false,
     on_recv_player_cmd: function (session, stype, ctype, body, utag, raw_cmd) {
 
-        console.log("~on_recv_player_cmd auth_service=", stype, ctype, body, utag, raw_cmd);
+        log.info("~on_recv_player_cmd auth_service=", stype, ctype, body, utag, raw_cmd);
 
         switch (ctype) {
             case Cmd.Auth.UNAME_LOGIN:

@@ -1,10 +1,12 @@
+var log = require("./../utils/log");
+
 var proto_man = require("./proto_man");
 
 var service_modules = {};
 
 function register_service(stype, service) {
     if(service_modules[stype]){
-        console.log(service_modules[stype].name, "is registered!!!");
+        log.warn(service_modules[stype].name, "is registered!!!");
     }
     service_modules[stype] = service;
 }

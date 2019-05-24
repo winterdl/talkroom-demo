@@ -1,3 +1,5 @@
+var log = require("./../utils/log");
+
 var ws = require("ws");
 var WebSocket = require("ws");
 var proto_man = require("./proto_man");
@@ -13,9 +15,9 @@ function get_client_session(session_key) {
 
 function on_session_enter(session, isClientToGw) {
     if(isClientToGw){
-        console.log("client 【", session._socket.remoteAddress, session._socket.remotePort, "】connect gw success!");
+        log.info("【 client", session._socket.remoteAddress, session._socket.remotePort, "】connect gw success!");
     }else{
-        console.log("gw 【", session._socket.remoteAddress, session._socket.remotePort, "】connect business server success!");
+        log.info("【 gw", session._socket.remoteAddress, session._socket.remotePort, "】connect business server success!");
     }
 
 
@@ -120,7 +122,7 @@ function connect_tcp_server(stype, host, port) {
         session.close();
 
         setTimeout(function () {
-            console.log("warning!!! gw connect to 【 stype=", stype, "port=", port, "】 failed, waiting reconnect...");
+            log.warn("warning!!! gw connect to 【 business server stype=", stype, "port=", port, "】 failed, waiting reconnect...");
             connect_tcp_server(stype, host, port);
         }, 3000);
     };
@@ -135,7 +137,7 @@ function connect_tcp_server(stype, host, port) {
 }
 
 function on_session_connected(stype, session) {
-    console.log("gw connect to business server【", session._socket.remoteAddress, session._socket.remotePort, 'stype=', stype, "】success");
+    log.info("gw connect to【 business server", session._socket.remoteAddress, session._socket.remotePort, 'stype=', stype, "】success");
     session.is_connected = true;
     session.send_encoded_cmd = session_send_encoded_cmd.bind(session);
     session.send_cmd = session_send_cmd.bind(session);

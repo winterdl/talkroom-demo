@@ -1,3 +1,5 @@
+var log = require("./../../utils/log");
+
 var netbus = require("./../../netbus/netbus");
 var service_manager = require("./../../netbus/service_manager");
 var talkroom_service = require("./talkroom_service");
@@ -10,4 +12,4 @@ netbus.start_ws_server(talkroom.port);
 
 service_manager.register_service(Stype.TalkRoom, talkroom_service);
 
-console.log("talkroom_server start success!");
+log.info("talkroom_server start success!");
