@@ -9,7 +9,7 @@ var Stype = require("./../Stype");
 
 var port = game_config.gateway_config.port;
 
-netbus.start_ws_server(port);
+netbus.start_ws_server(port, true);
 
 service_manager.register_service(Stype.Broadcast, bc_service);
 

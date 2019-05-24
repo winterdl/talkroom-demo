@@ -11,8 +11,14 @@ function get_client_session(session_key) {
     return global_session_list[session_key];
 }
 
-function on_session_enter(session) {
-    console.log("client/gw 【", session._socket.remoteAddress, session._socket.remotePort, "】connect gw/业务server success!");
+function on_session_enter(session, isClientToGw) {
+    if(isClientToGw){
+        console.log("client 【", session._socket.remoteAddress, session._socket.remotePort, "】connect gw success!");
+    }else{
+        console.log("gw 【", session._socket.remoteAddress, session._socket.remotePort, "】connect business server success!");
+    }
+
+
     session.is_connected = true;
     session.uid = 0;
     session.send_encoded_cmd = session_send_encoded_cmd.bind(session);
@@ -60,7 +66,7 @@ function session_close(session) {
     session.close();
 }
 
-function ws_add_client_session_event(session) {
+function ws_add_client_session_event(session, isClientToGw) {
     session.on("close", function () {
         on_session_exit(session);
         session.close();
@@ -74,16 +80,16 @@ function ws_add_client_session_event(session) {
         on_session_recv_cmd(session, data);
     });
 
-    on_session_enter(session);
+    on_session_enter(session, isClientToGw);
 }
 
-function start_ws_server(port) {
+function start_ws_server(port, isClientToGw) {
     var server = new ws.Server({
         port: port
     });
 
     server.on("connection", function (client_sock) {
-        ws_add_client_session_event(client_sock);
+        ws_add_client_session_event(client_sock, isClientToGw);
     });
 
     server.on("error", function (err) {
@@ -114,7 +120,7 @@ function connect_tcp_server(stype, host, port) {
         session.close();
 
         setTimeout(function () {
-            console.log("gw connect to 【 stype=", stype, "port=", port, "】 failed, waiting reconnect...");
+            console.log("warning!!! gw connect to 【 stype=", stype, "port=", port, "】 failed, waiting reconnect...");
             connect_tcp_server(stype, host, port);
         }, 3000);
     };
