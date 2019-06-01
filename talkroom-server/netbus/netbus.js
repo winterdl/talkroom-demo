@@ -21,7 +21,7 @@ function on_session_enter(session, isClientToGw) {
     }
 
     session.is_connected = true;
-    session.uid = 0;
+    session.uid = 0; // 刚进来uid为0，如果不正式注册到数据库，那么一直为0
     session.send_encoded_cmd = session_send_encoded_cmd.bind(session);
     session.send_cmd = session_send_cmd.bind(session);
 
@@ -50,6 +50,7 @@ function session_send_encoded_cmd(cmd) {
     if(!this.is_connected){
         return;
     }
+    log.info("cmd==", cmd);
     this.send(cmd);
 }
 

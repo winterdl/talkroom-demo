@@ -24,7 +24,7 @@ function on_recv_server_return(session, cmd_buf) {
     body = cmd[2];
     utag = cmd[3];
 
-    service_modules[stype].on_recv_server_return(session, stype, ctype, body, utag, body);
+    service_modules[stype].on_recv_server_return(session, stype, ctype, body, utag);
     return true;
 }
 
@@ -51,11 +51,12 @@ function on_recv_client_cmd(session, cmd_buf) {
 function on_client_lost_connect(session) {
     var uid = session.uid;
     if(uid == 0){
+        log.warn("用户尚未注册 或者 出现bug断线多次...");
         return;
     }
     session.uid = 0;
     for(var key in service_modules){
-        service_modules[key].on_player_disconnect(key, uid);
+        service_modules[key].on_player_disconnect(key, uid); // 通知key这个服务， uid这个客户端掉线了
     }
 }
 

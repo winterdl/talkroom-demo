@@ -12,7 +12,9 @@ var websocket = {
 
     _on_recv_data: function(event){
         var str_or_buf = event.data;
+        cc.log(">>>收到数据=", str_or_buf);
         if(!this.services_handler){
+            cc.log("warning!!!this.services_handler is null!!!");
             return;
         }
 
@@ -23,7 +25,6 @@ var websocket = {
 
         var stype = cmd[0];
         if(this.services_handler[stype]){
-            cc.log(">>>stype=", cmd[0], "ctype=", cmd[1], "body=", cmd[2]);
             this.services_handler[stype](cmd[0], cmd[1], cmd[2]);
         }else{
             cc.log("warn!!! client unregister callback stype=", stype);

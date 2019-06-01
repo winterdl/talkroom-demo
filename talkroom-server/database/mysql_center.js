@@ -1,5 +1,6 @@
 var mysql = require("mysql");
 var util = require("util");
+var Respones = require("./../apps/Respones");
 
 var conn_pool = null;
 
@@ -45,7 +46,7 @@ function get_uinfo_by_uname_upwd(uname, upwd, callback){
     console.log(sql_cmd);
     mysql_exec(sql_cmd, function (err, sql_ret, field_desic) {
         if(err){
-            callback(1, null);
+            callback(Respones.Auth.ACCOUNT_NOT_EXIST, {errmsg: "账号不存在"}); // 没有注册
             return;
         }
         callback(0, sql_ret);
