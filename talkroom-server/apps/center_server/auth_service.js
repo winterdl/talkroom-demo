@@ -1,4 +1,5 @@
 var log = require("./../../utils/log");
+var auth_model = require("./auth_model");
 
 var netbus = require("./../../netbus/netbus");
 var proto_man = require("./../../netbus/proto_man");
@@ -13,14 +14,17 @@ function uname_login(session, utag, body) {
     var uname = body[0];
     var upwd = body[1];
 
+    auth_model.uname_login(uname, upwd, function (ret) {
+        session.send_cmd(Stype.Auth, Cmd.Auth.UNAME_LOGIN, ret, utag);
+    });
 }
 
 var service = {
     name: "auth_service",
     is_transfer: false,
-    on_recv_player_cmd: function (session, stype, ctype, body, utag, raw_cmd) {
+    on_recv_player_cmd: function (session, stype, ctype, body, utag) {
 
-        log.info("~on_recv_player_cmd auth_service=", stype, ctype, body, utag, raw_cmd);
+        log.info("~on_recv_player_cmd auth_service=", stype, ctype, body, utag);
 
         switch (ctype) {
             case Cmd.Auth.UNAME_LOGIN:
@@ -29,7 +33,7 @@ var service = {
         }
     },
 
-    on_recv_server_return: function (session, stype, ctype, body, utag, raw_cmd) {
+    on_recv_server_return: function (session, stype, ctype, body, utag) {
 
     },
 

@@ -44,7 +44,7 @@ function on_recv_client_cmd(session, cmd_buf) {
         return false;
     }
 
-    service_modules[stype].on_recv_player_cmd(session, stype, ctype, body, utag, body);
+    service_modules[stype].on_recv_player_cmd(session, stype, ctype, body, utag);
     return true;
 }
 

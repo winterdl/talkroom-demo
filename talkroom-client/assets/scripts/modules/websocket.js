@@ -6,6 +6,7 @@ var websocket = {
     is_connected: false,
 
     _on_opened: function(){
+        cc.log("服务器连接成功!");
         this.is_connected = true;
     },
 
@@ -22,6 +23,7 @@ var websocket = {
 
         var stype = cmd[0];
         if(this.services_handler[stype]){
+            cc.log(">>>stype=", cmd[0], "ctype=", cmd[1], "body=", cmd[2]);
             this.services_handler[stype](cmd[0], cmd[1], cmd[2]);
         }else{
             cc.log("warn!!! client unregister callback stype=", stype);
@@ -50,10 +52,13 @@ var websocket = {
 
     send_cmd: function(stype, ctype, body){
         if(!this.sock || !this.is_connected || this.sock.readyState != WebSocket.OPEN){
+            cc.log("网络有误!!!");
             return;
         }
 
         var buf = proto_man.encode_cmd(stype, ctype, body);
+
+        cc.log("<<<发送数据 buf=", buf);
         this.sock.send(buf);
     },
 

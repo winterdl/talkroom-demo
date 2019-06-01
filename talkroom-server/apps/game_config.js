@@ -21,6 +21,14 @@ var game_config = {
         stypes: [Stype.TalkRoom]
     },
 
+    center_database:{
+        host: HOST_IP,
+        port: 3306,
+        db_name: "db_wzq",
+        uname: "root",
+        upwd: "jianan"
+    },
+
     gw_connect_servers: {
         0: {
             stype: Stype.TalkRoom,

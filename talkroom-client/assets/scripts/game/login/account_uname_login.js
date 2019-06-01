@@ -15,7 +15,7 @@ cc.Class({
 
     onClick: function(event, customEventData){
         if(customEventData == "btn_uname_login"){
-            if(!this.edit_uname.string ||  this.edit_uname.string.length != 11){
+            if(!this.edit_uname.string ||  this.edit_uname.string.length == 0){
                 return;
             }
 
